@@ -2,11 +2,11 @@
 //jQuery(document)
 
 $(document).ready(() => {
-    let table = $("#machinings_table").DataTable({
+    let table = $("#changes_table").DataTable({
         ajax: {
             type: "GET",
             datatype: "json",
-            url: "/machining-parameter-sets",
+            url: "/product_changes-parameter-sets",
             dataSrc: ""
         },
         rowId: "_id",
@@ -43,7 +43,7 @@ $(document).ready(() => {
         ],
         onAddRow: (datatable, rowdata, success, error)=>{
             $.ajax({
-                url: "/machining-parameter-set/",
+                url: "/product_changes-parameter-set/",
                 type: "POST",
                 data: rowdata,
                 success: success,
@@ -52,7 +52,7 @@ $(document).ready(() => {
         },
         onDeleteRow: (datatable, rowdata, success, error)=>{
             $.ajax({
-                url: "/machining-parameter-set/" + rowdata._id,
+                url: "/product_changes-parameter-set/" + rowdata._id,
                 type: "DELETE",
                 data: rowdata,
                 success: success,
@@ -61,7 +61,7 @@ $(document).ready(() => {
         },
         onEditRow: (datatable, rowdata, success, error)=>{
             $.ajax({
-                url: "/machining-parameter-set/" + rowdata._id,
+                url: "/product_changes-parameter-set/" + rowdata._id,
                 type: "PUT",
                 data: rowdata,
                 success: success,

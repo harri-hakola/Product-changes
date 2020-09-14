@@ -6,7 +6,7 @@ const app = express();
 
 const body_parser = require('body-parser');
 
-const machining_controller = require('./machining_controller');
+const product_changes_controller = require('./product_changes_controller');
 
 app.use(body_parser.json()); 
 app.use(body_parser.urlencoded({
@@ -23,15 +23,15 @@ app.use((req, res, next) => {
 app.use("/", express.static("public"));
 
 
-app.post("/machining-parameter-set", machining_controller.api_post_parameter);
+app.post("/product_changes-parameter-set", product_changes_controller.api_post_parameter);
 
-app.get("/machining-parameter-sets", machining_controller.api_get_parameters);
+app.get("/product_changes-parameter-sets", product_changes_controller.api_get_parameters);
 
-app.get("/machining-parameter-set/:id", machining_controller.api_get_parameter); 
+app.get("/product_changes-parameter-set/:id", product_changes_controller.api_get_parameter); 
 
-app.put("/machining-parameter-set/:id", machining_controller.api_put_parameter);
+app.put("/product_changes-parameter-set/:id", product_changes_controller.api_put_parameter);
 
-app.delete("/machining-parameter-set/:id", machining_controller.api_delete_parameter);
+app.delete("/product_changes-parameter-set/:id", product_changes_controller.api_delete_parameter);
 
 
 const database_uri = "mongodb+srv://server:N4GSeeH6EeYXAEM3@cluster0-pkrto.mongodb.net/machiningdb?retryWrites=true&w=majority"

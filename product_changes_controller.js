@@ -1,7 +1,7 @@
-const machining_model = require('./machining_model');
+const product_changes_model = require('./product_changes_model');
 
 
-const machining_data = (req) => {
+const product_changes_data = (req) => {
     let data = {
         products: req.body.products,
         reason: req.body.reason,
@@ -14,9 +14,9 @@ const machining_data = (req) => {
 //Lisää parametrisetti
 const api_post_parameter = (req, res, next) => {
     console.log('api_post_parameter');
-    let data = machining_data(req);
+    let data = product_changes_data(req);
 
-    let new_parameter = machining_model(data);
+    let new_parameter = product_changes_model(data);
 
     new_parameter.save().then(() => {
         console.log(new_parameter);
@@ -33,7 +33,7 @@ const api_post_parameter = (req, res, next) => {
 const api_get_parameters = (req, res, next) => {
     console.log('api_get_parameters');
 
-    machining_model.find({})
+    product_changes_model.find({})
         .lean()
         .then(parameters => {
             res.send(JSON.stringify(parameters));
@@ -47,7 +47,7 @@ const api_get_parameters = (req, res, next) => {
 //Hae parametrisetti ID:llä
 const api_get_parameter = (req, res, next) => {
     let id = req.params.id; 
-    machining_model.findById(id)
+    product_changes_model.findById(id)
         .then(parameters => {
             res.send(JSON.stringify(parameters));
         }).catch(err => {
@@ -60,9 +60,9 @@ const api_get_parameter = (req, res, next) => {
 //Päivitä parametrisetti
 const api_put_parameter = (req, res, next) => {
     let id = req.params.id;
-    let data = machining_data(req);
+    let data = product_changes_data(req);
 
-    machining_model.findByIdAndUpdate(id, data, {
+    product_changes_model.findByIdAndUpdate(id, data, {
         new: true
     }).then((parameter) => {
         res.send(parameter);
@@ -77,7 +77,7 @@ const api_put_parameter = (req, res, next) => {
 //Poista parametrisetti
 const api_delete_parameter = (req, res, next) => {
     let id = req.params.id;
-     machining_model.findByIdAndRemove(id).then(() => {
+     product_changes_model.findByIdAndRemove(id).then(() => {
          res.send();
      }).catch(err => {
          res.status(500);
