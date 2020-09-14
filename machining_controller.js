@@ -3,10 +3,10 @@ const machining_model = require('./machining_model');
 
 const machining_data = (req) => {
     let data = {
-        tool_name: req.body.tool_name,
-        material: req.body.material,
-        cutting_speed: req.body.cutting_speed,
-        feed_rate: req.body.feed_rate,
+        products: req.body.products,
+        reason: req.body.reason,
+        change: req.body.change,
+        additional_information: req.body.additional_information,
     };
     return data;
 };

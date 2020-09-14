@@ -2,23 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const schema = new Schema({
-    tool_name: {
+    products: {
         type: String,
         required: true,
         index: {
             unique: true
         }
     },
-    material: {
+    reason: {
         type: String,
         required: true
     },
-    cutting_speed: {
-        type: Number,
+    change: {
+        type: String,
         required: true
     },
-    feed_rate: {
-        type: Number,
+    additional_information: {
+        type: String,
         required: true
     }
 });

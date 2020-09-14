@@ -12,10 +12,10 @@ $(document).ready(() => {
         rowId: "_id",
         columns: [
             {data: "_id", type: "readonly", visible: false},
-            {data: "tool_name", type: "text", required: true},
-            {data: "material", type: "text", required:true},
-            {data: "cutting_speed", type: "float", required:true},
-            {data: "feed_rate", type: "float", required:true}
+            {data: "products", type: "text", required: true},
+            {data: "reason", type: "text", required:true},
+            {data: "change", type: "text", required:true},
+            {data: "additional_information", type: "text", required:true}
         ],
 
         dom: "Bfrtip",
