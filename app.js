@@ -34,7 +34,6 @@ app.put("/product_changes-parameter-set/:id", product_changes_controller.api_put
 app.delete("/product_changes-parameter-set/:id", product_changes_controller.api_delete_parameter);
 
 
-//const database_uri = "mongodb+srv://server:N4GSeeH6EeYXAEM3@cluster0-pkrto.mongodb.net/machiningdb?retryWrites=true&w=majority"
 const database_uri = "mongodb://bhzmongo:X22D6pnWfMxf19lCiCakATfxcz6zjKIa5IRpmLXmLmZYidKpcYbhJGrVwRpr8Brop78Xu4eYkqULGv6WgNyJpQ==@bhzmongo.mongo.cosmos.azure.com:10255/?ssl=true&appName=@bhzmongo@"
 
 mongoose.connect(database_uri, {
